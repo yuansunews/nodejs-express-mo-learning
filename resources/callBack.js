@@ -37,11 +37,30 @@ function getProRepo(name){
     return new Promise((resolve, reject)=>{
         setTimeout(()=>{
             console.log("getting repo");
-            resolve(['repo1', 'repo2'])
+            //resolve(['repo1', 'repo2'])
+            reject("error occured!")
         }, 2000)
     })
 }
 
-getProName(1).then(user=>getProRepo(user.getUserName))
-.then(repo=>console.log(repo))
-.catch(error=>console.error("error catch: ", error.message))
+// getProName(1).then(user=>getProRepo(user.getUserName))
+// .then(repo=>console.log(repo))
+// .catch(error=>console.error("error catch: ", error.message))
+
+
+
+//asyn and await approach
+async function displayRepo(){
+    try{
+        const user = await getProName();
+        const repo = await getProRepo(user);
+        console.log(repo)
+    }
+    catch(err){
+        console.log("error:", err)
+    }
+    
+}
+
+displayRepo();
+
