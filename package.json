@@ -1,0 +1,32 @@
+{
+  "name": "nodejs-express-mo-learning",
+  "version": "1.0.0",
+  "description": "this is learning nodejs api using express learning",
+  "main": "index.js",
+  "dependencies": {
+    "config": "^3.3.2",
+    "debug": "^4.3.1",
+    "express": "^4.17.1",
+    "helmet": "^4.2.0",
+    "joi": "^17.3.0",
+    "mongoose": "^5.10.16",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuansunews/nodejs-express-mo-learning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuansunews/nodejs-express-mo-learning/issues"
+  },
+  "homepage": "https://github.com/yuansunews/nodejs-express-mo-learning#readme"
+}
