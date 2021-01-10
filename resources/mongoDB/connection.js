@@ -1,3 +1,4 @@
+
 //DB connect
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/playground")
@@ -31,10 +32,11 @@ const course = new Course({
 // nin (not in)
 
 async function createCourse(params) {
-    const result = course.save();
+   
+    const result = await course.save();
     console.log(result);
 }
-//createCourse();
+//createCourse(course);
 
 async function getCourses(params) {
     //logical operator
@@ -80,4 +82,50 @@ async function getCourseWithRegex(){
         .limit(pageSize)
 }
 
+//update && delete documents
+//query first
+async function updateCourse(id){
+    const course = await Course.findById(id);
+    if(!course) return;
+    //1.
+    course.set({
+        isPublished: true,
+        author: "another author"
+    })
+    //2.
+    course.isPublished = true;
+    course.author = "another author";
+
+    const result = await course.save();
+    console.log(result);
+}
+
+
+//update first
+async function  udpateCourse2(id) {
+    //_id is column name
+    //$set is mongo update operator
+    const course = await Course.update({_id: id},{
+        $set: {
+            author: "author",
+            isPublished: false
+        }
+    })
+
+    //second mongo method. -> findByIdAndUpdate
+    const course = await Course.findByIdAndUpdate(id,{
+        $set: {
+            author: "test",
+            isPublished: false
+        }
+    }, {new: true})
+    //new true will show the update content in terminal, it returns the object from db
+}
+
+async function removeCouse(id) {
+    const result = await Course.deleteOne({_id: id});
+    //Course.deleteMany
+    //Course.findByIdAndRemove
+    Course.deleteOne({isPublished: true});
+}
 

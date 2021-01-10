@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const joi = require("joi");
+joi.objectId = require('joi-objectid')(joi);
 const helmet = require("helmet");
 const morgan = require("morgan");
 const config= require("config");
