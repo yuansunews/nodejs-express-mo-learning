@@ -8,7 +8,7 @@ const courses = [
     {id: 3, name: "Math"}
 ]
 
-
+console.log("hi leah")
 router.get('/', (req, res)=>{
     res.send(courses)
 })
