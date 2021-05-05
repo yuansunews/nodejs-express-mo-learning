@@ -12,7 +12,7 @@ const courseSchema = new mongoose.Schema({
     date: {type: Date, default: Date.now},
     isPublished: Boolean
 })
-
+//coment
 const Course = mongoose.model("Course", courseSchema);
 const course = new Course({
     name: "angular",
